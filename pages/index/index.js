@@ -6,7 +6,6 @@ const Api = require('../../api/interface.js')
 Page({
   data: {
     dataList:[],
-    CustomBar:this.globalData.CustomBar
   },
 
   onLoad: function () {
