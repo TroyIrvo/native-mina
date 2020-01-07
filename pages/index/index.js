@@ -1,12 +1,11 @@
 //index.js
 const Api = require('../../api/interface.js')
 //获取应用实例
-const app = getApp()
+// const app = getApp()
 
 Page({
   data: {
-    dataList: [],
-    CustomBar: ""
+    dataList: []
   },
 
   onLoad: function () {
@@ -21,7 +20,7 @@ Page({
       setTimeout(() => {
         wx.stopPullDownRefresh()
         this.setData({
-          CustomBar: app.globalData.CustomBar,
+        
           dataList: data.body.items
         })
       }, 1000)

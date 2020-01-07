@@ -3,7 +3,7 @@
 	<cu-custom bgColor="bg-gradual-pink">
 		<view slot="content">智能服务</view>
 	</cu-custom>
-	<view wx:for="{{dataList}}" wx:key="index" wx:for-item="item" class="gd-box" style="top: {{CustomBar}}px">
+	<view wx:for="{{dataList}}" wx:key="index" wx:for-item="item" class="gd-box">
 		<view class="cu-bar bg-white solid-bottom">
 			<view class="action">
 				{{item.Name}}

@@ -8,7 +8,6 @@
 		"es6": true,
 		"enhance": true,
 		"postcss": false,
-		"preloadBackgroundData": false,
 		"minified": false,
 		"newFeature": true,
 		"coverView": true,
@@ -23,7 +22,8 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"preloadBackgroundData": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.9.4",

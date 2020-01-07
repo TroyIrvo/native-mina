@@ -17,7 +17,7 @@ GzConfig.SignalR = "";
 GzConfig.AMapKey = ""
 
 //服务网关ip
-GzConfig.WG_DOMAIN = '10.0.64.235' // "103.56.76.161"
+GzConfig.WG_DOMAIN = '103.56.76.161' // "103.56.76.161"
 
 //服务网关端口
 GzConfig.WG_PORT = "7007"
