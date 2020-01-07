@@ -78,17 +78,12 @@ globalInterceptor.request.use(
  */
 globalInterceptor.response.use(
 	async (res, config) => {
-			////////////////////////////////////////
-			//  demo使用的是 用code模拟http状态码   //
-			////////////////////////////////////////
-
 			console.log('is global response interceptor');
-
 			// 跳过 `request().download()` 这个拦截
 			if (typeof res.tempFilePath !== 'undefined') {
 				return res;
 			}
-			// console.log(res);
+			console.log(res);
 			const data = JSON.parse(res.data);
 			const code = data.publicresponse.statuscode;
 			const message = data.publicresponse.message;
@@ -107,8 +102,17 @@ globalInterceptor.response.use(
 			console.error('is global response fail interceptor');
 			console.error('err: ', err);
 			console.error('config: ', config);
-
-			showToast(err);
+			if (config.servicecode == '00000030040') {
+				showToast("未绑定账号,请重新登录")
+				setTimeout(() => {
+					wx.navigateTo({
+						url: '/pages/login/login'
+					})
+				}, 1000)
+				return false;
+			} else {
+				showToast(err);
+			}
 
 			return Promise.reject(err);
 			// return false;
@@ -117,12 +121,13 @@ globalInterceptor.response.use(
 
 /**
  * 重新请求更新获取 `token`
- * @param {number} uid
+ * @param {string} code
+ * @param {string} requestParams
  * @return {Promise}
  */
-function getApiToken(uid) {
-	return TokenApi.getMockToken(uid).then((res) => {
-		return res.token;
+function getApiToken(code, requestParams) {
+	return TokenApi.getToken(code, requestParams).then((res) => {
+		return res.body;
 	});
 }
 
@@ -142,6 +147,7 @@ function getToken() {
 function saveToken(token) {
 	wx.setStorageSync('token', token);
 }
+
 
 /**
  * 处理 http状态码
@@ -184,8 +190,12 @@ function handleCode({
 
 			config.count++; // count字段自增，可以用来判断请求次数，避免多次发送重复的请求
 			config.url = config.instanceURL; // 重置 config的相对地址，避免 `params` 多次添加
-
-			return getApiToken(2460392754)
+			let params = {
+				"LingPai": "ofXai56Vw2PsyGr2LeNMWTBtBIS0o5gpj0dAvSNYL9LOqaDSwzGWZJ00",
+        "SysId": GzConfig.SYS_SYSTEMID,
+        "TargetSysId": GzConfig.SYS_TARGET_SYSTEMID
+			}
+			return getApiToken("00000030040",params)
 				.then(saveToken)
 				.then(() => Request().request(config));
 		},
@@ -199,10 +209,15 @@ function handleCode({
 			}
 			config.count++; // count字段自增，可以用来判断请求次数，避免多次发送重复的请求
 			config.url = config.instanceURL; // 重置 config的相对地址，避免 `params` 多次添加
-			
-			return getApiToken(2460392754)
+			let params = {
+				"LingPai": "ofXai56Vw2PsyGr2LeNMWTBtBIS0o5gpj0dAvSNYL9LOqaDSwzGWZJ00",
+        "SysId": GzConfig.SYS_SYSTEMID,
+        "TargetSysId": GzConfig.SYS_TARGET_SYSTEMID
+			}
+			return getApiToken("00000030040",params)
 				.then(saveToken)
 				.then(() => Request().request(config));
+
 		},
 		'1003'() {
 			return Promise.reject({

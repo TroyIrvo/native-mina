@@ -71,7 +71,7 @@ module.exports ={
 		// 超时 6s 就中断请求
 		setTimeout(() => {
 			r.abort(instance);
-		}, 6000);
+		}, 10000);
 		
 		return instance;
 	}

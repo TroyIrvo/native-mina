@@ -17,7 +17,7 @@ GzConfig.SignalR = "";
 GzConfig.AMapKey = ""
 
 //服务网关ip
-GzConfig.WG_DOMAIN = "103.56.76.161"
+GzConfig.WG_DOMAIN = '10.0.64.235' // "103.56.76.161"
 
 //服务网关端口
 GzConfig.WG_PORT = "7007"
@@ -29,6 +29,6 @@ GzConfig.WG_URL = "http://" + GzConfig.WG_DOMAIN + ":" + GzConfig.WG_PORT + "/ap
 GzConfig.SYS_SYSTEMID = "638396FA-AEC9-45D1-A1F5-F83B7BAFA5D9"
 
 //目标系统id
-GzConfig.SYS_TARGET_SYSTEMID = ""
+GzConfig.SYS_TARGET_SYSTEMID = "60190FC4-5103-4C76-94E4-12A54B62C92A"
 
 export default GzConfig;

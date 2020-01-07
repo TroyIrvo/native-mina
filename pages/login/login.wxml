@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="gd-view">
+	<cu-custom bgColor="bg-gradual-pink">
+		<view slot="content">登录</view>
+	</cu-custom>
+</view>

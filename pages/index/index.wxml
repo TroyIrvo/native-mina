@@ -3,11 +3,28 @@
 	<cu-custom bgColor="bg-gradual-pink">
 		<view slot="content">智能服务</view>
 	</cu-custom>
-	<view wx:for="{{dataList}}" wx:key="index" wx:for-item="item" class="gd-box" :style="{top: CustomBar + 'px'}">
+	<view wx:for="{{dataList}}" wx:key="index" wx:for-item="item" class="gd-box" style="top: {{CustomBar}}px">
 		<view class="cu-bar bg-white solid-bottom">
-      <view class="action">
-        {{item.Name}}
-      </view>
-    </view>
+			<view class="action">
+				{{item.Name}}
+			</view>
+		</view>
+		<view class="cu-list menu-avatar">
+			<view class="cu-item" wx:for="{{item.Child}}" wx:for-item="subitem" wx:key="subindex">
+				<view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
+				<view class="content">
+					<view class="text-pink">
+						<view class="text-cut">{{subitem.Name}}</view>
+					</view>
+					<view class="text-gray text-sm flex">
+						<view class="text-cut">凯尔，你被自己的光芒变的盲目！</view>
+					</view>
+				</view>
+				<view class="action">
+					<view class="text-grey text-xs">22:20</view>
+					<view class="cu-tag round bg-red sm">5</view>
+				</view>
+			</view>
+		</view>
 	</view>
 </view>
