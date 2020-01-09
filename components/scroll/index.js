@@ -198,7 +198,6 @@ Component({
 		init() {
 			let {windowWidth} = wx.getSystemInfoSync();
 			let successHeight = (windowWidth || 375) / 750 * 70;
-
 			this.createSelectorQuery().select("#refresh").boundingClientRect((res) => {
 				this.setData({
 					scrollHeight1: -res.height,

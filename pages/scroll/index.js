@@ -63,58 +63,15 @@ Page({
 		listData: [],
 		hasTop: true,
     enableBackToTop: false,
-		refreshSize: 90,
-		bottomSize: 350,
-		color: "#3F82FD",
-		items: [
-			{name: '蓝', value: '#3F82FD', checked: 'true'},
-			{name: '红', value: '#ff4158'},
-		],
+		refreshSize: app.globalData.CustomBar *2,
+		bottomSize: app.globalData.CustomBar *2,
+		color: "#3F82FD", //ff4158
 		empty: false
 	},
 	itemClick(e) {
 		console.log(e);
 	},
-	hasTopChange(e) {
-		this.setData({
-			hasTop: e.detail.value
-		})
-	},
-  enableBackToTopChange(e) {
-    this.setData({
-      enableBackToTop: e.detail.value
-    })
-  },
-	refreshChange(e) {
-		this.setData({
-			refreshSize: e.detail.value
-		})
-	},
-	bottomChange(e) {
-		this.setData({
-			bottomSize: e.detail.value
-		})
-	},
-	radioChange: function (e) {
-		this.setData({
-			color: e.detail.value
-		})
-	},
-	emptyChange(e) {
-		if (e.detail.value) {
-			this.setData({
-				listData: [],
-				emptyShow: true,
-				end: true
-			})
-		} else {
-			this.setData({
-				listData: testData,
-				emptyShow: false,
-				end: false
-			})
-		}
-	},
+
 	getList(type, currentPage) {
 		this.setData({
 			requesting: true

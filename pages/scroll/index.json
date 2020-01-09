@@ -1,6 +1,8 @@
 {
 	"disableScroll": true,
 	"usingComponents": {
-		"scroll": "../../components/scroll/index"
-	}
+		"scroll": "../../components/scroll/index",
+		"cu-custom": "../../plugins/colorui/components/cu-custom"
+	},
+	"navigationStyle": "custom"
 }

@@ -1,26 +1,13 @@
-<view class="title" style="line-height: {{refreshSize < 80 ? 80 : refreshSize }}rpx" wx:if="{{hasTop}}">
-	标题
-</view>
+<cu-custom bgColor="bg-gradual-pink" >
+	<view slot="content">智能服务</view>
+</cu-custom>
 
-<scroll id="scroll"
-		requesting="{{requesting}}"
-		empty-show="{{emptyShow}}"
-		end="{{end}}"
-		listCount="{{listData.length}}"
-		has-top="{{hasTop}}"
-    enable-back-to-top="{{enableBackToTop}}"
-		refresh-size="{{refreshSize}}"
-		bottom-size="{{bottomSize}}"
-		color="{{color}}"
-		bind:refresh="refresh"
-		bind:more="more">
+
+<scroll id="scroll" requesting="{{requesting}}" empty-show="{{emptyShow}}" end="{{end}}" listCount="{{listData.length}}" has-top="{{hasTop}}" enable-back-to-top="{{enableBackToTop}}" refresh-size="{{refreshSize}}" bottom-size="{{bottomSize}}" color="{{color}}" bind:refresh="refresh" bind:more="more">
 	<view class="cells">
-		<view class="cell"
-			  wx:for="{{listData}}"
-			  wx:key="index"
-				bindtap="itemClick">
+		<view class="cell" wx:for="{{listData}}" wx:key="index" bindtap="itemClick">
 			<view class="cell__hd">
-				<image mode="aspectFill" src="{{item.images}}" alt=""/>
+				<image mode="aspectFill" src="{{item.images}}" alt="" />
 			</view>
 			<view class="cell__bd">
 				<view class="name">{{item.title}}</view>
@@ -29,44 +16,3 @@
 		</view>
 	</view>
 </scroll>
-
-<view class="control-panel {{isIphoneX ? 'isX' : ''}}" style="height: {{bottomSize}}rpx">
-	<view class="panel-item">
-		<view class="panel-item__hd">refresh-size:</view>
-		<view class="panel-item__bd">
-			<slider bindchanging="refreshChange" value="{{refreshSize}}" show-value="{{true}}" min="80" max="200"
-					step="10"/>
-		</view>
-	</view>
-	<view class="panel-item">
-		<view class="panel-item__hd">bottom-size:</view>
-		<view class="panel-item__bd">
-			<slider bindchanging="bottomChange" value="{{bottomSize}}" show-value="{{true}}" min="250" max="400"
-					step="10"/>
-		</view>
-	</view>
-	<view class="panel-item">
-		<view class="panel-item__hd">has-top:</view>
-		<view class="panel-item__bd">
-			<switch checked="{{hasTop}}" bindchange="hasTopChange"/>
-		</view>
-		<view class="panel-item__hd">空列表:</view>
-		<view class="panel-item__bd">
-			<switch checked="{{empty}}" bindchange="emptyChange"/>
-		</view>
-    <view class="panel-item__hd">双击回顶部:</view>
-		<view class="panel-item__bd">
-			<switch checked="{{enableBackToTop}}" bindchange="enableBackToTopChange"/>
-		</view>
-	</view>
-	<view class="panel-item">
-		<view class="panel-item__hd">color:</view>
-		<view class="panel-item__bd">
-			<radio-group class="radio-group" bindchange="radioChange">
-				<label class="radio" wx:for="{{items}}" wx:key="index">
-					<radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
-				</label>
-			</radio-group>
-		</view>
-	</view>
-</view>

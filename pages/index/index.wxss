@@ -1,10 +1,1 @@
 /**index.wxss**/
-.gd-view {
-  height: 100%;
-
-}
-
-.gd-box {
-  position: relative;
-
-}

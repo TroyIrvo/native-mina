@@ -26,7 +26,7 @@
 		"preloadBackgroundData": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.9.4",
+	"libVersion": "2.10.0",
 	"appid": "wx7f2af03a7965cc3b",
 	"projectname": "gdunis-nativeMINA-template",
 	"debugOptions": {

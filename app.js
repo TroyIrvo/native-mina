@@ -33,6 +33,10 @@ App({
 
     wx.getSystemInfo({
       success: e => {
+        this.globalData.systemInfo = e;
+				if (e.model.search('iPhone X') != -1) {
+					this.globalData.isIphoneX = true
+				}
         this.globalData.StatusBar = e.statusBarHeight;
         let custom = wx.getMenuButtonBoundingClientRect();
         this.globalData.Custom = custom;  
@@ -42,6 +46,9 @@ App({
   },
   globalData: {
     userInfo: null,
-    CustomBar: ""
+    CustomBar: "",
+    systemInfo: null,
+		version: "1.0.0",
+		isIphoneX: false
   }
 })
