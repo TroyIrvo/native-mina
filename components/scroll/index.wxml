@@ -1,30 +1,32 @@
 <view>
 	<view id="success"
 		  class="success {{successShow ? 'success--show' : ''}} {{successTran ? 'success--tran' : ''}}"
-		  style="top: {{hasTop ? refreshSize : 0}}rpx;color: {{color}}">
-		<view class="info">刷新成功</view>
+		  style="top: {{hasTop ? customTab : 0}}px;color: {{color}}">
+		<view class="info" wx:if="{{isReqSucc}}">刷新成功</view>
+		<view class="info" wx:if="{{!isReqSucc}}">刷新失败</view>
 	</view>
 	<movable-area class="movable-area">
 		<movable-view
 				class="scroll"
-				style="height: calc(100vh + 40rpx + {{refreshSize}}rpx)"
+				style="height: calc(100vh + 40rpx + {{refreshSize}}px)"
 				bind:change="change"
 				bind:touchend="touchend"
 				direction="vertical"
 				disabled="{{refreshStatus >= 3}}"
 				y='{{move}}'>
+				<!-- padding-top: {{ hasTop ? refreshSize : 0}}px; -->
 			<scroll-view
 					class="scroll__view"
-					style="padding-bottom: {{bottomSize}}rpx;padding-top: {{ hasTop ? refreshSize : 0}}rpx;"
+					style="padding-bottom: {{bottomSize}}px;"
 					scroll-y="{{refreshStatus == 1}}"
 					bindscroll="scroll"
 					scroll-top="{{scrollTop}}"
           enable-back-to-top="{{enableBackToTop}}"
-					lower-threshold="{{80}}rpx"
+					lower-threshold="{{80}}px"
 					bindscrolltolower="more">
 				<view id="refresh"
 					  class="scroll__refresh {{successShow ? 'scroll__refresh--hidden' : ''}}"
-					  style="height: {{refreshSize}}rpx;padding: 20rpx 0;">
+					  style="height: {{refreshSize}}px;padding: 20rpx 0;">
 					<view class="scroll__loading">
 						<view wx:if="{{refreshStatus == 1 || refreshStatus == 2}}" class="{{refreshStatus == 2 ? 'rotate' : ''}} arrow"></view>
 						<view wx:if="{{refreshStatus == 3}}" class="loading">

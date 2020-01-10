@@ -6,6 +6,14 @@ Component({
 			value: false,
 			observer: 'requestingEnd',
 		},
+		isReqSucc:{
+			type:Boolean,
+			value:true
+		},
+		customTab:{
+			type: Number,
+			value: 0
+		},
 		// 加载完毕
 		end: {
 			type: Boolean,
@@ -186,7 +194,7 @@ Component({
 		refreshChange(newVal, oldVal) {
 			if (newVal <= 80) {
 				this.setData({
-					refreshSize: 80
+					refreshSize: 100
 				});
 			}
 			// 异步加载数据时候, 延迟执行 init 方法, 防止基础库 2.7.1 版本及以下无法正确获取 dom 信息
@@ -198,6 +206,7 @@ Component({
 		init() {
 			let {windowWidth} = wx.getSystemInfoSync();
 			let successHeight = (windowWidth || 375) / 750 * 70;
+
 			this.createSelectorQuery().select("#refresh").boundingClientRect((res) => {
 				this.setData({
 					scrollHeight1: -res.height,

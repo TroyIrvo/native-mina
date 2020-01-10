@@ -111,7 +111,11 @@ globalInterceptor.response.use(
 				}, 1000)
 				return false;
 			} else {
-				showToast(err);
+				if (err.errMsg == 'request:fail abort') {
+					showToast("请求超时！");
+				}else{
+					showToast(err);
+				}
 			}
 
 			return Promise.reject(err);

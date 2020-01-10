@@ -2,7 +2,7 @@
 <cu-custom bgColor="bg-gradual-pink">
 	<view slot="content">智能服务</view>
 </cu-custom>
-<scroll id="scroll" requesting="{{requesting}}" empty-show="{{emptyShow}}" end="{{end}}" listCount="{{listData.length}}" has-top="{{hasTop}}" enable-back-to-top="{{enableBackToTop}}" refresh-size="{{refreshSize}}" bottom-size="{{bottomSize}}" color="{{color}}" bind:refresh="refresh" bind:more="more">
+<scroll id="scroll" is-req-succ="{{isReqSucc}}" custom-tab="{{customBar}}" requesting="{{requesting}}" empty-show="{{emptyShow}}" end="{{end}}" listCount="{{listData.length}}" has-top="{{hasTop}}" enable-back-to-top="{{enableBackToTop}}" refresh-size="{{refreshSize}}" bottom-size="{{bottomSize}}" color="{{color}}" bind:refresh="refresh" bind:more="more">
 	<view wx:for="{{dataList}}" wx:key="index" wx:for-item="item" class="gd-box">
 		<view class="cu-bar bg-white solid-bottom">
 			<view class="action">

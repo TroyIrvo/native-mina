@@ -12,51 +12,21 @@ Page({
 		listData: [],
 		hasTop: true,
     enableBackToTop: true,
-		refreshSize: 150,
-		bottomSize: 200,
-		color: "#3F82FD",
+    customBar:app.globalData.CustomBar,
+		refreshSize: app.globalData.CustomBar * 1.5,
+		bottomSize: app.globalData.CustomBar+15,
+    color: "#3F82FD",
+    isReqSucc:true
   },
   itemClick(e) {
     console.log(e);
   },
 
-  enableBackToTopChange(e) {
-    this.setData({
-      enableBackToTop: e.detail.value
-    })
-  },
-  refreshChange(e) {
-    this.setData({
-      refreshSize: e.detail.value
-    })
-  },
-  bottomChange(e) {
-    this.setData({
-      bottomSize: e.detail.value
-    })
-  },
-
-  emptyChange(e) {
-    if (e.detail.value) {
-      this.setData({
-        dataList: [],
-        emptyShow: true,
-        end: true
-      })
-    } else {
-      this.setData({
-        dataList: testData,
-        emptyShow: false,
-        end: false
-      })
-    }
-  },
+  
   getList(type, currentPage) {
     this.setData({
       requesting: true
     })
-
-    wx.showNavigationBarLoading()
 
     let params = {
       "UserId": "3d376010-f67a-4683-9919-1ab929b7c323"
@@ -64,7 +34,8 @@ Page({
     Api.getIndexListData("003300900001", params).then(data => {
       let testData = data.body.items;
       this.setData({
-        requesting: false
+        requesting: false,
+        isReqSucc:true
       })
       if (type === 'refresh') {
         this.setData({
@@ -78,16 +49,14 @@ Page({
           end: false
         })
       }
-      wx.hideNavigationBarLoading()
     }).catch(err => {
+      this.setData({
+        requesting: false,
+        isReqSucc:false
+      })
       console.log(err);
     })
-    // 模拟异步获取数据场景
-    setTimeout(() => {
 
-
-
-    }, 1000);
   },
   // 刷新数据
   refresh() {

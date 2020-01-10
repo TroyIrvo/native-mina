@@ -63,7 +63,7 @@ Page({
 		listData: [],
 		hasTop: true,
     enableBackToTop: false,
-		refreshSize: app.globalData.CustomBar *2,
+		refreshSize: app.globalData.CustomBar,
 		bottomSize: app.globalData.CustomBar *2,
 		color: "#3F82FD", //ff4158
 		empty: false

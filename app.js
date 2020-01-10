@@ -46,6 +46,7 @@ App({
   },
   globalData: {
     userInfo: null,
+    Custom:"",
     CustomBar: "",
     systemInfo: null,
 		version: "1.0.0",
