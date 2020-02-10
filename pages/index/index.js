@@ -15,7 +15,7 @@ Page({
     customBar:app.globalData.CustomBar,
 		refreshSize: app.globalData.CustomBar * 1.5,
 		bottomSize: app.globalData.CustomBar+15,
-    color: "#3F82FD",
+    color: "#e03997",
     isReqSucc:true
   },
   itemClick(e) {

@@ -83,7 +83,7 @@ globalInterceptor.response.use(
 			if (typeof res.tempFilePath !== 'undefined') {
 				return res;
 			}
-			console.log(res);
+			//console.log(res);
 			const data = JSON.parse(res.data);
 			const code = data.publicresponse.statuscode;
 			const message = data.publicresponse.message;

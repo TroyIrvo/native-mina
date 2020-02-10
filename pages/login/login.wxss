@@ -1,10 +1,8 @@
 /* pages/login/login.wxss */
-.gd-view {
-  height: 100%;
-
+.top20{
+  margin-top: 40rpx;
 }
 
-.gd-box {
-  position: relative;
-
+.padding15{
+  padding: 30rpx;
 }

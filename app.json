@@ -1,17 +1,17 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/scroll/index",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/index/index"
   ],
 
-    "window": {
-      "backgroundTextStyle": "dark",
-      "navigationBarTextStyle": "black",
-      "navigationBarBackgroundColor": "#ffffff",
-      "navigationBarTitleText": "紫光服务中心",
-      "backgroundColor": "#f7f7f7"
+  "window": {
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "cu-custom": "../../plugins/colorui/components/cu-custom",
+    "van-field": "../../plugins/vantui/field/index",
+    "van-cell-group":"../../plugins/vantui/cell-group/index",
+    "van-button": "../../plugins/vantui/button/index"
     },
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

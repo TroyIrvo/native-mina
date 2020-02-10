@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<cu-custom bgColor="bg-gradual-pink">
+<cu-custom bgColor="bg-gradual-blue">
 	<view slot="content">智能服务</view>
 </cu-custom>
 <scroll id="scroll" is-req-succ="{{isReqSucc}}" custom-tab="{{customBar}}" requesting="{{requesting}}" empty-show="{{emptyShow}}" end="{{end}}" listCount="{{listData.length}}" has-top="{{hasTop}}" enable-back-to-top="{{enableBackToTop}}" refresh-size="{{refreshSize}}" bottom-size="{{bottomSize}}" color="{{color}}" bind:refresh="refresh" bind:more="more">
@@ -28,3 +28,4 @@
 		</view>
 	</view>
 </scroll>
+
